@@ -11,3 +11,12 @@
 .fighter-preview___left {
   align-items: flex-start;
 }
+
+.fighter-preview___property {
+  font-size: 22px;
+  font-weight: 600;
+  color: darkorange;
+  background-color: rgb(255, 250, 240);
+  width: 300px;
+  padding: 10px;
+}

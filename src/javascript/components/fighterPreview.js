@@ -9,6 +9,32 @@ export function createFighterPreview(fighter, position) {
 
     // todo: show fighter info (image, name, health, etc.)
 
+    function createProperty(keyValue) {
+        const nameElement = createElement({ tagName: 'span', className: 'fighter-preview___property' });
+        nameElement.innerText = keyValue.join(': ').replace(subStr => subStr.toUpperCase());
+
+        return nameElement;
+    }
+
+    function createPreviewImage(source) {
+        const attributes = { src: source };
+        const imgElement = createElement({
+            tagName: 'img',
+            className: 'fighter-image___preview',
+            attributes
+        });
+
+        return imgElement;
+    }
+
+    if (fighter) {
+        const keyValueArrayOfObject = Object.entries(fighter);
+        fighterElement.append(createPreviewImage(fighter.source));
+        keyValueArrayOfObject
+            .filter(keyValueAll => keyValueAll[0] !== '_id' && keyValueAll[0] !== 'source')
+            .forEach(keyValue => fighterElement.append(createProperty(keyValue)));
+    }
+
     return fighterElement;
 }
 
